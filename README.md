@@ -8,7 +8,8 @@
 
 This is a simple library to handle UI events based on Android LiveData architecture library.
 
-If `lifecycleOwner` is  not passed or `null` it use `observeForever(observer)` else `observe(lifecycleOwner, observer)`.
+If `observer` is passed then: 
+If `lifecycleOwner` is  not passed or `null` it use `observeForever(observer)` insteadof `observe(lifecycleOwner, observer)`.
 
 ## How to use
 ### Usage

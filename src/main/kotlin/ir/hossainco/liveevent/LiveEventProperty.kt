@@ -2,7 +2,7 @@ package ir.hossainco.liveevent
 
 import kotlin.reflect.KProperty
 
-class LiveEventProperty<T>(clazz: Class<LiveEvent<*>>? = null) {
+class LiveEventProperty<T>(clazz: Class<LiveEvent<T>>? = null) {
 	val liveEvent: LiveEvent<T> = when (clazz) {
 		is SingleLiveEvent<*> -> SingleLiveEvent()
 		is MutabaleLiveEvent<*> -> MutabaleLiveEvent()
