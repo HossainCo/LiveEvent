@@ -1,0 +1,21 @@
+def deps = ext.deps = [:]
+
+deps.build_gradle = "com.android.tools.build:gradle:${versions.build_gradle}"
+deps.junit = "junit:junit:${versions.junit}"
+
+def support = deps.support = [:]
+support.fragment = "com.android.support:support-fragment:${versions.support.version}"
+
+/** Android Architecture Libraries: https://developer.android.com/topic/libraries/architecture */
+def arch = deps.arch = [:]
+arch.lifecycle = [:]
+/* LifeCycle: https://developer.android.com/topic/libraries/architecture/lifecycle.html */
+arch.lifecycle.runtime = "android.arch.lifecycle:runtime:${versions.arch.lifecycle.runtime}"
+arch.lifecycle.compiler = "android.arch.lifecycle:compiler:${versions.arch.lifecycle.compiler}"
+/* LiveData: https://developer.android.com/topic/libraries/architecture/livedata.html */
+/* ViewModel: https://developer.android.com/topic/libraries/architecture/viewmodel.html */
+arch.lifecycle.extensions = "android.arch.lifecycle:extensions:${versions.arch.lifecycle.extensions}"
+
+def kotlin = deps.kotlin = [:]
+kotlin.gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin.version}"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin.version}"

@@ -1,0 +1,25 @@
+def versions = ext.versions = [:]
+versions.build_gradle = '3.1.0-alpha04'
+versions.compatibility = [:]
+versions.compatibility.target = JavaVersion.VERSION_1_6
+versions.compatibility.source = JavaVersion.VERSION_1_6
+versions.compatibility.kotlin = JavaVersion.VERSION_1_6
+
+versions.compile_sdk = 27
+versions.build_tools = '27.0.1'
+versions.min_sdk = 14
+versions.target_sdk = 27
+
+def support = versions.support = [:]
+support.version = versions.build_tools // '27.0.1' // '26.1.0'
+
+def arch = versions.arch = [:]
+arch.version = '1.0.0'
+arch.lifecycle = [:]
+arch.lifecycle.runtime = '1.0.3'
+arch.lifecycle.compiler = arch.version
+arch.lifecycle.common_java8 = arch.version
+arch.lifecycle.extensions = arch.version
+
+def kotlin = versions.kotlin = [:]
+kotlin.version = '1.2.0' //'1.1.51'
