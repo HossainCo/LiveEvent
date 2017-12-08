@@ -1,4 +1,4 @@
-sudo: required
+sudo: false
 language: android
 
 after_failure: "cat $TRAVIS_BUILD_DIR/lint-results-debug.xml"
@@ -8,14 +8,33 @@ jdk:
 
 android:
   components:
-    - tools # to get the new `repository-11.xml`
-    - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
     - platform-tools
-    - build-tools-26.0.1
-    - android-26
+    - build-tools-27.0.1
+    - android-27
+    #- tools # to get the new `repository-11.xml`
+    #- tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
 
 before_install:
-  - echo yes | sudo sdkmanager --licenses
+  - mkdir "$ANDROID_HOME/licenses" || true
+  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+
+licenses:
+  - 'android-sdk-license-.+'
+  - 'google-gdk-license-.+'
+  - '.+'
+
+branches:
+  except:
+    - gh-pages
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle
+
+before_install:
+  #- echo yes | sudo sdkmanager --licenses
   - chmod +x gradlew
 
 script:
