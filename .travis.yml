@@ -10,15 +10,15 @@ android:
     - build-tools-26.0.1
     - android-26
 
-script:
-  - ./gradlew build
-
 before_install:
+  - yes | sudo sdkmanager --licenses
   - chmod +x gradlew
 
 after_failure: "cat $TRAVIS_BUILD_DIR/lint-results-debug.xml"
 
-licenses:
-  - 'android-sdk-preview-license-.+'
-  - 'android-sdk-license-.+'
-  - 'google-gdk-license-.+'
+script:
+  - ./gradlew build
+
+install:
+  - echo yes | sdkmanager "tools"
+  - echo yes | sdkmanager "platforms;android-27"
