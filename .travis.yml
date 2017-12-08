@@ -1,7 +1,11 @@
 sudo: required
 language: android
+
+after_failure: "cat $TRAVIS_BUILD_DIR/lint-results-debug.xml"
+
 jdk:
   - oraclejdk8
+
 android:
   components:
     - tools # to get the new `repository-11.xml`
@@ -11,14 +15,8 @@ android:
     - android-26
 
 before_install:
-  - yes | sudo sdkmanager --licenses
+  - echo yes | sudo sdkmanager --licenses
   - chmod +x gradlew
-
-after_failure: "cat $TRAVIS_BUILD_DIR/lint-results-debug.xml"
 
 script:
   - ./gradlew build
-
-install:
-  - echo yes | sdkmanager "tools"
-  - echo yes | sdkmanager "platforms;android-27"
