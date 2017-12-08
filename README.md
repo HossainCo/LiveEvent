@@ -3,6 +3,8 @@
 [![](https://jitpack.io/v/HossainCo/LiveEvent.svg)](https://jitpack.io/#HossainCo/LiveEvent)
 [![Build Status](https://travis-ci.org/HossainCo/LiveEvent.svg?branch=master)](https://travis-ci.org/HossainCo/LiveEvent)
 [![Coverage Status](https://coveralls.io/repos/github/HossainCo/LiveEvent/badge.svg?branch=master)](https://coveralls.io/github/HossainCo/LiveEvent?branch=master)
+ 
+[![Github All Releases](https://img.shields.io/github/downloads/hossainco/livedata/total.svg?style=flat-square)]()
 
 This is a simple library to handle UI events based on Android LiveData architecture library.
 
