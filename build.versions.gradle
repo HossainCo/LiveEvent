@@ -5,13 +5,13 @@ versions.compatibility.target = JavaVersion.VERSION_1_6
 versions.compatibility.source = JavaVersion.VERSION_1_6
 versions.compatibility.kotlin = JavaVersion.VERSION_1_6
 
-versions.compile_sdk = 27
-versions.build_tools = '27.0.1'
+versions.compile_sdk = 26
+versions.build_tools = '26.0.1'
 versions.min_sdk = 14
-versions.target_sdk = 27
+versions.target_sdk = 26
 
 def support = versions.support = [:]
-support.version = versions.build_tools // '27.0.1' // '26.1.0'
+support.version = versions.build_tools // '26.0.1'
 
 def arch = versions.arch = [:]
 arch.version = '1.0.0'
