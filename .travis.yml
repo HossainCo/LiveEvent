@@ -1,16 +1,19 @@
 sudo: required
 language: android
 jdk:
-  - oraclejdk8
+	- oraclejdk8
 android:
-  components:
-    - tools # to get the new `repository-11.xml`
-    - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
-    - platform-tools
-    - build-tools-27.0.1
-    - android-27
+	components:
+		- tools # to get the new `repository-11.xml`
+		- tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
+		- platform-tools
+		- build-tools-27.0.1
+		- android-27
 
 script:
-   - ./gradlew build
+	- ./gradlew build
+
+before_install:
+	- chmod +x gradlew
 
 # after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
