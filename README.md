@@ -1,6 +1,8 @@
 # Android LiveEvent Library
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![](https://jitpack.io/v/HossainCo/LiveEvent.svg)](https://jitpack.io/#HossainCo/LiveEvent)
+[![Build Status](https://travis-ci.org/HossainCo/LiveEvent.svg?branch=master)](https://travis-ci.org/HossainCo/LiveEvent)
+[![Coverage Status](https://coveralls.io/repos/github/HossainCo/LiveEvent/badge.svg?branch=master)](https://coveralls.io/github/HossainCo/LiveEvent?branch=master)
 
 This is a simple library to handle UI events based on Android LiveData architecture library.
 
