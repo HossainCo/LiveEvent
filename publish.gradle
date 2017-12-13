@@ -1,0 +1,45 @@
+ext.publishs = [
+	group     : 'ir.hossainco',
+	artifact  : 'liveevnt',
+	name      : 'LiveEvent',
+	version   : '1.0.0-alpha2',
+	des       : 'This is a simple library to handle UI events based on Android LiveData architecture library',
+	url       : 'https://hossainco.github.io/LiveEvent/',
+
+
+	jar       : [
+		prefix : '',
+		postfix: '',
+	],
+
+	bintray   : [
+		repo: 'maven',
+		org : 'hossainco',
+		name: 'LiveEvent',
+	],
+
+	scm       : [
+		url                : 'https://hossainco.github.io/LiveEvent/',
+		connection         : 'https://github.com/HossainCo/LiveEvent.git',
+		developerConnection: 'https://github.com/HossainCo/LiveEvent.git',
+	],
+
+	developers: [
+		[
+			id   : 'hossainco',
+			name : 'HossainCo',
+			email: 'hco@post.com',
+		],
+	],
+
+	licenses  : [
+		[
+			name        : 'MIT License',
+			url         : 'https://opensource.org/licenses/MIT',
+			distribution: 'repo',
+			list        : [
+				'MIT',
+			],
+		],
+	],
+]

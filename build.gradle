@@ -1,14 +1,15 @@
 buildscript {
-	apply from: 'build.versions.gradle'
-	apply from: 'build.dependencies.gradle'
+	apply from: 'build.deps.gradle'
+	apply from: 'publish.gradle'
 
 	repositories {
-		google()
 		jcenter()
+		google()
 	}
 	dependencies {
-		classpath deps.build_gradle
+		classpath deps.bintray.gradle_plugin
 		classpath deps.kotlin.gradle_plugin
+		classpath deps.build_gradle
 	}
 
 	ext {
@@ -20,9 +21,8 @@ buildscript {
 
 allprojects {
 	repositories {
-		google()
 		jcenter()
-		maven { url 'https://jitpack.io' }
+		google()
 	}
 }
 
@@ -54,7 +54,7 @@ android {
 }
 
 dependencies {
-	compile deps.kotlin.stdlib
+	implementation deps.kotlin.stdlib
 
 	implementation deps.support.fragment
 
@@ -63,3 +63,9 @@ dependencies {
 	// implementation deps.arch.lifecycle.common_java8
 	implementation deps.arch.lifecycle.extensions
 }
+
+//apply from : 'publish.maven.gradle'
+//apply from : 'publish.bintray.gradle'
+
+apply from: 'https://raw.githubusercontent.com/HossainCo/gists/master/publish.maven.gradle'
+apply from: 'https://raw.githubusercontent.com/HossainCo/gists/master/publish.bintray.gradle'
