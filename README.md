@@ -2,6 +2,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![](https://jitpack.io/v/HossainCo/LiveEvent.svg)](https://jitpack.io/#HossainCo/LiveEvent)
 
+[![pipeline status](https://gitlab.com/HossainCo/LiveEvent/badges/master/pipeline.svg)](https://gitlab.com/HossainCo/LiveEvent/commits/master)
+[![coverage report](https://gitlab.com/HossainCo/LiveEvent/badges/master/coverage.svg)](https://gitlab.com/HossainCo/LiveEvent/commits/master)
 [![Build Status](https://travis-ci.org/HossainCo/LiveEvent.svg?branch=master)](https://travis-ci.org/HossainCo/LiveEvent)
 [![Coverage Status](https://coveralls.io/repos/github/HossainCo/LiveEvent/badge.svg?branch=master)](https://coveralls.io/github/HossainCo/LiveEvent?branch=master)
 
