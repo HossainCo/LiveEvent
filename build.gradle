@@ -10,12 +10,7 @@ buildscript {
 		classpath deps.bintray.gradle_plugin
 		classpath deps.kotlin.gradle_plugin
 		classpath deps.build_gradle
-	}
-
-	ext {
-		travisBuild = System.getenv("TRAVIS") == "true"
-		// allows for -Dpre-dex=false to be set
-		preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
+		classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
 	}
 }
 
@@ -39,17 +34,12 @@ android {
 	defaultConfig {
 		minSdkVersion versions.min_sdk
 		targetSdkVersion versions.target_sdk
+		version publishs.version
 	}
 
 	dexOptions {
-		// Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
-		preDexLibraries = preDexEnabled && !travisBuild
-	}
-
-	buildTypes {
-		debug {
-			testCoverageEnabled true
-		}
+		if (System.getenv("TRAVIS") == "true")
+			preDexLibraries = preDexEnabled && !travisBuild
 	}
 }
 
@@ -66,6 +56,5 @@ dependencies {
 
 //apply from : 'publish.maven.gradle'
 //apply from : 'publish.bintray.gradle'
-
 apply from: 'https://raw.githubusercontent.com/HossainCo/gists/master/publish.maven.gradle'
 apply from: 'https://raw.githubusercontent.com/HossainCo/gists/master/publish.bintray.gradle'

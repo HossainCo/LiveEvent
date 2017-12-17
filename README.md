@@ -1,9 +1,10 @@
 # Android LiveEvent Library
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![](https://jitpack.io/v/HossainCo/LiveEvent.svg)](https://jitpack.io/#HossainCo/LiveEvent)
+
 [![Build Status](https://travis-ci.org/HossainCo/LiveEvent.svg?branch=master)](https://travis-ci.org/HossainCo/LiveEvent)
 [![Coverage Status](https://coveralls.io/repos/github/HossainCo/LiveEvent/badge.svg?branch=master)](https://coveralls.io/github/HossainCo/LiveEvent?branch=master)
- 
+
 [![Github All Releases](https://img.shields.io/github/downloads/hossainco/livedata/total.svg?style=flat-square)]()
 
 This is a simple library to handle UI events based on Android LiveData architecture library.
@@ -15,37 +16,41 @@ If `lifecycleOwner` is  not passed or `null` it use `observeForever(observer)` i
 ### Usage
 ```kotlin
 // Simple create a SingleLiveEvent<String>
-val event1 by liveEvent<String>
- 
-// Also register an Observer
-val event2 by liveEvent<String>(lifecycleOwner) {
-  // actions
+val event by liveEvent<String>
+
+// Also register an default|first Observer
+val event by liveEvent<String>(lifecycleOwner) { value ->
+	Logger.e('test', value)
 }
- 
+
+// lifecycleOwner parameter automaticly use in AppCompat activities !
+// else if lifecycleOwner does not send then it observes for ever !!
+val event by liveEvent { value: Boolean ->
+	Logger.e('test', "check: $value")
+}
+
 // Use another LiveEvent types
-val event3 by liveEvent<String>(clazz= OneShotLiveEvent::class)
- 
-val event4 by liveEvent<String>(lifecycleOwner, OneShotLiveEvent::class) {
-  // actions
+val event by liveEvent<String>(clazz= OneShotLiveEvent::class)
+
+// specify event class (default is SingleLiveEvent)
+val event by liveEvent<String>(lifecycleOwner, OneShotLiveEvent::class) {
+	// actions
 }
-```
- 
-### Create
-```kotlin
+
 // from google samples Handles only one observer
-val event1 : LiveEvent<String> = SingleLiveEvent()
+val event : LiveEvent<String> = SingleLiveEvent()
  
 // from QAs Handles only one observer (not recommended)
-val event2 : LiveEvent<String> = MutableLiveEvent()
+val event : LiveEvent<String> = MutableLiveEvent()
  
 // from QAs Handles many observers
-val event3 : LiveEvent<String> = OneShotLiveEvent() 
+val event : LiveEvent<String> = OneShotLiveEvent()
 ```
- 
+
 ### Observe
 ```kotlin
 event.observe(lifecycleOwner, Observer {
-  // actions on event
+	// actions on event
 })
 ```
 
@@ -53,16 +58,16 @@ event.observe(lifecycleOwner, Observer {
 ```Groovy
 // in root project
 allprojects {
-  repositories {
-    // ...
-    maven { url 'https://jitpack.io' }
-  }
+	repositories {
+		// ...
+		maven { url 'https://jitpack.io' }
+	}
 }
  
 // in project
 dependencies {
-  compile 'com.github.hossainco:liveevent:1.0.0-alpha1'
-  // ...
+	compile 'com.github.HossainCo:LiveEvent:1.0.0-alpha2'
+	// ...
 }
 ```
 

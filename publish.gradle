@@ -1,4 +1,4 @@
-ext.publishs = [
+project.ext.publishs = [
 	group     : 'ir.hossainco',
 	artifact  : 'liveevnt',
 	name      : 'LiveEvent',
@@ -20,8 +20,8 @@ ext.publishs = [
 
 	scm       : [
 		url                : 'https://hossainco.github.io/LiveEvent/',
-		connection         : 'https://github.com/HossainCo/LiveEvent.git',
-		developerConnection: 'https://github.com/HossainCo/LiveEvent.git',
+		connection         : 'scm:git:https://github.com/HossainCo/LiveEvent.git',
+		developerConnection: 'scm:git:ssh:git@github.com/HossainCo/LiveEvent.git',
 	],
 
 	developers: [
@@ -42,4 +42,8 @@ ext.publishs = [
 			],
 		],
 	],
+
+	removeDependecies: [
+		'support-fragment',
+	]
 ]
