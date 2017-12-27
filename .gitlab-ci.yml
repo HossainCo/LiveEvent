@@ -1,15 +1,15 @@
 image: javiersantos/android-ci:27.0.2
 
 before_script:
-	- export GRADLE_USER_HOME=`pwd`/.gradle
-	- chmod +x ./gradlew
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+  - chmod +x ./gradlew
 
 cache:
   key: "$CI_COMMIT_REF_NAME"
   paths:
-		- .m2
-		- .gradle/wrapper
-		- .gradle/caches
+    - .m2
+    - .gradle/wrapper
+    - .gradle/caches
 
 stages:
   - build

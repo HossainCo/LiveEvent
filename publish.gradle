@@ -2,7 +2,7 @@ project.ext.publishs = [
 	group     : 'ir.hossainco',
 	artifact  : 'liveevnt',
 	name      : 'LiveEvent',
-	version   : '1.0.0-alpha4',
+	version   : '0.1.4',
 	des       : 'This is a simple library to handle UI events based on Android LiveData architecture library',
 	url       : 'https://hossainco.github.io/LiveEvent/',
 
