@@ -68,7 +68,7 @@ allprojects {
  
 // in project
 dependencies {
-	compile 'com.github.HossainCo:LiveEvent:1.0.0-alpha3'
+	compile 'com.github.HossainCo:LiveEvent:1.0.0-alpha4'
 	// ...
 }
 ```

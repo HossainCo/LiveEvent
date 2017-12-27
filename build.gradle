@@ -1,21 +1,24 @@
 buildscript {
-	apply from: 'build.deps.gradle'
+	apply from: 'https://raw.githubusercontent.com/HossainCo/gists/master/deps.gradle'
 	apply from: 'publish.gradle'
 
 	repositories {
+		mavenLocal()
 		jcenter()
 		google()
 	}
 	dependencies {
-		classpath deps.bintray.gradle_plugin
-		classpath deps.kotlin.gradle_plugin
-		classpath deps.build_gradle
-		classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+		deps.build_gradle()
+		deps.android_maven()
+		deps.kotlin.gradle_plugin()
+		deps.bintray.gradle_plugin()
 	}
 }
 
 allprojects {
 	repositories {
+		mavenLocal()
+		maven { url 'https://jitpack.io' }
 		jcenter()
 		google()
 	}
@@ -26,15 +29,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-	compileSdkVersion versions.compile_sdk
-	buildToolsVersion versions.build_tools
+	compileSdkVersion depsVersion.compile_sdk
+	buildToolsVersion depsVersion.build_tools
 
 	sourceSets.each { it.java.srcDirs += "src/${it.name}/kotlin" }
 
 	defaultConfig {
-		minSdkVersion versions.min_sdk
-		targetSdkVersion versions.target_sdk
-		version publishs.version
+		minSdkVersion depsVersion.min_sdk
+		targetSdkVersion depsVersion.target_sdk
+		version depsVersion.version
 	}
 
 	dexOptions {
@@ -43,18 +46,19 @@ android {
 	}
 }
 
+configurations.all { resolutionStrategy.cacheChangingModulesFor 0, 'seconds' }
+
 dependencies {
-	implementation deps.kotlin.stdlib
+	deps.kotlin.stdlib()
+	deps.hossainco.commonkotlin()
 
-	implementation deps.support.fragment
+	deps.support.fragment()
 
-	implementation deps.arch.lifecycle.runtime
-	kapt deps.arch.lifecycle.compiler
-	// implementation deps.arch.lifecycle.common_java8
-	implementation deps.arch.lifecycle.extensions
+	deps.arch.lifecycle.runtime()
+	deps.arch.lifecycle.compiler()
+	//  deps.arch.lifecycle.common_java8()
+	deps.arch.lifecycle.extensions()
 }
 
-//apply from : 'publish.maven.gradle'
-//apply from : 'publish.bintray.gradle'
 apply from: 'https://raw.githubusercontent.com/HossainCo/gists/master/publish.maven.gradle'
 apply from: 'https://raw.githubusercontent.com/HossainCo/gists/master/publish.bintray.gradle'
